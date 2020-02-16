@@ -4,7 +4,7 @@ pipeline {
 		stage('Upload to AWS'){
 			steps{
 				sh 'echo "Upload to AWS S3 starting...."'
-				withAWS(region: 'us-east-1') 
+				withAWS(region: 'us-east-1', credentials:'IDofSystemCredentials') 
 				{
 					s3Upload(bucket:'mnfgl-udacity-jenkinspipeline')
 				}
